@@ -894,10 +894,12 @@ def build_asn1_certificate(cert):
 def parse_cert_parent_folder(folder_path, update_db=False):
     main_folder = pathlib.Path(folder_path)
     if not main_folder.exists():
-        raise Exception('Cert folder "{}" does not exists'.format(folder_path))
-    for sub_folder in main_folder.iterdir():
-        if sub_folder.is_dir():
-            parse_cert_folder(str(sub_folder), update_db=update_db)
+        # raise Exception('Cert folder "{}" does not exists'.format(folder_path))
+        main_folder.mkdir(parents=True)
+    else:
+        for sub_folder in main_folder.iterdir():
+            if sub_folder.is_dir():
+                parse_cert_folder(str(sub_folder), update_db=update_db)
 
 
 def parse_cert_folder(folder_path, update_db=False):
@@ -954,8 +956,7 @@ if __name__ == '__main__':
 
     requiredNamed.add_argument('-f', '--certificate_folder_path',
                                help='Folder where cert folders are stored',
-                               required=False,
-                               default='/home/lonewolf/PycharmProjects/cmp/certs/')
+                               required=True)
     args = parser.parse_args()
 
     while True:
