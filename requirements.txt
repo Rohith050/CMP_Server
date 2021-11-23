@@ -1,0 +1,14 @@
+asn1crypto==1.4.0
+asn1tools==0.158.0
+bitstruct==8.11.1
+cffi==1.14.6
+cryptography==3.4.7
+diskcache==5.2.1
+prompt-toolkit==3.0.19
+pyasn1==0.4.8
+pyasn1-modules==0.2.8
+pycparser==2.20
+pycrypto==2.6.1
+pyparsing==2.4.7
+termcolor==1.1.0
+wcwidth==0.2.5
